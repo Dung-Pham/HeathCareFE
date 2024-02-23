@@ -64,7 +64,7 @@ class HomeHeader extends Component {
             <li>
                 <a href="#">Support</a>
             </li>
-            <li><a onClick={() => this.handleLogin()} href="signup.html">Admin</a></li>
+            <li><a onClick={() => this.handleLogin()} >Admin</a></li>
         </ul>
                         </div >
                     </div >

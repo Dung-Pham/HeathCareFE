@@ -72,52 +72,56 @@ class Login extends Component {
     render() {
         // JSX
         return (
-            <div>
-                <div className='login-background'>
-                    <div className='login-container'>
-                        <div className='login-content row'>
-                            <div className='col-12 text-login'>Đăng nhập</div>
-                            <div className='col-12 form-group login-input'>
-                                <label>Tên đăng nhập</label>
-                                <input
-                                    type='text'
-                                    className='form-control'
-                                    placeholder='Điền tên đăng nhập của bạn'
+            <div className="login-wrap">
+                <div className="login-html">
+                    <input id="tab-1" type="radio" name="tab" className="sign-in" checked/><label for="tab-1" className="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label for="tab-2" className="tab">Sign Up</label>
+                    <div className="login-form">
+                        <div className="sign-in-htm">
+                            <div className="group">
+                                <label for="user" className="label">Username</label>
+                                <input id="user" type="text" className="input" placeholder='Điền tên đăng nhập của bạn'
                                     value={this.state.username}
-                                    onChange={(e) => { this.handleOnChangeUsername(e) }}
-
-                                />
+                                    onChange={(e) => { this.handleOnChangeUsername(e) }}/>
+                                        
                             </div>
-                            <div className='col-12 form-group login-input'>
-                                <label>Mật khẩu</label>
-                                <div className='custom-input-password'>
-                                    <input
-                                        type={this.state.isShowPassword ? 'text' : 'password'}
-                                        className='form-control'
-                                        placeholder='Điền mật khẩu của bạn'
+                            <div className="group">
+                                <label for="pass" className="label">Password</label>
+                                <input id="pass" type="password" className="input" data-type="password" placeholder='Điền mật khẩu của bạn'
                                         onChange={(e) => { this.handleOnChangePassword(e) }}
-                                        onKeyDown={(e) => this.handleKeyDown(e)}
-                                    />
-                                    <span onClick={() => { this.handleShowHidePassword() }}>
-                                        <i className={this.state.isShowPassword ? "fas fa-eye" : "fas fa-eye-slash"}></i>
-                                    </span>
-                                </div>
+                                        onKeyDown={(e) => this.handleKeyDown(e)} />
+                            </div>
+                                
+                            <div className="group">
+                                <input type="submit" className="button" value="Sign In" onClick={() => {this.handleLogin()}} />
                             </div>
                             <div className='col-12' style={{ color: 'red' }}>
                                 {this.state.errMessage}
                             </div>
-                            <div className='col-12'>
-                                <button className='btn-login' onClick={() => { this.handleLogin() }}>Đăng nhập</button>
+                            <div className="hr"></div>
+                            <div className="foot-lnk">
+                                Welcome to Health Care!
                             </div>
-                            {/* <div className='col-12'>
-                                <span className='forgot-password'>Quên mật khẩu?</span>
-                            </div> */}
-                            <div className='col-12 text-center mt-3'>
-                                <span className='text-other-login'>Hoặc đăng nhập với:</span>
+                        </div>
+                        <div className="sign-up-htm">
+                            <div className="group">
+                                <label for="user" className="label">Username</label>
+                                <input id="user" type="text" className="input" />
                             </div>
-                            <div className='col-12 social-login'>
-                                <i className="fab fa-facebook-f facebook"></i>
-                                <i className="fab fa-google-plus-g google"></i>
+                            <div className="group">
+                                <label for="pass" className="label">Password</label>
+                                <input id="pass" type="password" className="input" data-type="password" />
+                            </div>
+                            <div className="group">
+                                <label for="pass" className="label">Repeat Password</label>
+                                <input id="pass" type="password" className="input" data-type="password" />
+                            </div>
+                            <div className="group">
+                                <label for="pass" className="label">Email Address</label>
+                                <input id="pass" type="text" className="input" />
+                            </div>
+                            <div className="group">
+                                <input type="submit" className="button" value="Sign Up" />
                             </div>
                         </div>
                     </div>
