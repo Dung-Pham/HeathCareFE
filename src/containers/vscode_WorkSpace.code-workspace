@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../hospital_project"
+		},
+		{
+			"path": "../../../../python"
+		},
+		{
+			"path": "../../../../tai_xuong/shop-coron"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "shop-coron"
+	}
+}

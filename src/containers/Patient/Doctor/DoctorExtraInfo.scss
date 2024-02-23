@@ -1,0 +1,84 @@
+.doctor-extra-info-container {
+    padding-left: 16px;
+
+    .content-up {
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ccc;
+
+        .text-address {
+            text-transform: uppercase;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .name-clinic {
+            font-weight: 600;
+            color: #333;
+            padding: 5px 0;
+        }
+
+        .address-clinic {
+            font-weight: 600;
+            color: #333;
+        }
+    }
+
+    .content-mid {
+        margin-top: 28px;
+
+        .short-info {
+
+            .title-pri {
+                text-transform: uppercase;
+                color: #666;
+                font-weight: bold;
+                margin-right: 4px;
+            }
+
+            .detail {
+                cursor: pointer;
+                color: rgb(38, 160, 231);
+                margin-left: 4px;
+            }
+        }
+
+        .title-price {
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .detail-info {
+            border: 1px solid #ddd;
+            padding: 4px;
+            background-color: #f8f8f8;
+
+            .price {
+                padding-bottom: 4px;
+
+                .right {
+                    float: right;
+                }
+            }
+
+            .note {}
+        }
+
+        .payment {
+            border: 1px solid #ddd;
+            padding: 4px;
+            background-color: #eee;
+        }
+
+        .hide-price {
+            margin-top: 12px;
+
+            span {
+                cursor: pointer;
+                color: rgb(38, 160, 231);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,170 @@
+/* Fonts
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+   :root {
+    --font-family-primary: "Noto Sans", sans-serif;
+    --font-weight-primary-regular: 400;
+    --font-weight-primary-bold: 700;
+  }
+  
+  /* Border radius
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  :root {
+    --border-radius-primary: 26px;
+    --border-radius-secondary: 5px;
+  }
+  
+  /* Color of details
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  :root {
+    --color-details: #2821fc;
+  }
+  
+  /* Gradients
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  :root {
+    /* Violet */
+    --gradient-violet-start: #b53cff;
+    --gradient-violet-end: #f952ff;
+  
+    /* Green */
+    --gradient-green-start: #23bd38;
+    --gradient-green-end: #41eba9;
+  
+    /* Red */
+    --gradient-red-start: #f857a6;
+    --gradient-red-end: #ff5858;
+  
+    /* Orange */
+    --gradient-orange-start: #e77842;
+    --gradient-orange-end: #f7c068;
+  
+    /* Yellow */
+    --gradient-yellow-start: #ffb040;
+    --gradient-yellow-end: #ffd62e;
+  
+    /* Blue */
+    --gradient-blue-start: #327ae7;
+    --gradient-blue-end: #6bd0ff;
+  }
+  
+  /* Gradients for pricing tables
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  :root {
+    /* Free */
+    --gradient-free-start: #23bd38;
+    --gradient-free-end: #41eba9;
+  
+    /* Monthly */
+    --gradient-monthly-start: #e77842;
+    --gradient-monthly-end: #f7c068;
+  
+    /* Yearly */
+    --gradient-yearly-start: #b53cff;
+    --gradient-yearly-end: #f952ff;
+  }
+  
+  /* Light version
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  :root {
+    --color-font: #161b3d;
+    --color-font-button: #161b3d;
+    --color-alert-red: #f74856;
+    --color-alert-orange: #ff970d;
+    --color-body: #fff;
+    --color-featured-label: #fff;
+    --color-featured-label-mobile: #161b3d;
+    --color-search-icon: #161b3d;
+    --color-underline-link: #dde0e0;
+    --color-table-border: #dde0e0;
+    --color-figcaption: #5b6572;
+    --color-hover-dot: #d3d5dc;
+  
+    --color-bg-textarea: #f2f3f7;
+    --color-bg-code: rgba(40, 41, 54, 1);
+    --color-bg-tag: #f4f4f4;
+    --color-bg-featured-label: #161b3d;
+    --color-bg-featured-label-mobile: #f4f4f4;
+    --color-bg-elements: #f7f7f7;
+    --color-bg-button-membership: #e2e5ed;
+    --color-bg-notification-success: #23bd38;
+  
+    --color-elements-one: #f0f0f0;
+    --color-elements-two: #e2e5ed;
+    --color-elements-white: #fff;
+  
+    /* Default item gradient background */
+    --gradient-gray-start: #e2e5ed;
+    --gradient-gray-end: #f1f4f4;
+  }
+  
+  /* Dark version
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  :root .global-hash-dark-version {
+    --color-font: #fff;
+    --color-font-button: #0b0b0b;
+    --color-alert-red: #f74856;
+    --color-alert-orange: #ff970d;
+    --color-body: #222327;
+    --color-featured-label: #1a1a1a;
+    --color-featured-label-mobile: #222327;
+    --color-search-icon: #717171;
+    --color-underline-link: #414242;
+    --color-table-border: #414242;
+    --color-figcaption: #c3c6c7;
+    --color-hover-dot: #717171;
+    --color-bg-notification-success: #23bd38;
+  
+    --color-bg-textarea: #28292e;
+    --color-bg-code: #32343a;
+    --color-bg-tag: #414242;
+    --color-bg-featured-label: #fff;
+    --color-bg-featured-label-mobile: #f4f4f4;
+    --color-bg-elements: #28292e;
+    --color-bg-button-membership: #e2e5ed;
+  
+    --color-elements-one: #414242;
+    --color-elements-two: #717171;
+    --color-elements-white: #fff;
+  
+    /* Default item gradient background */
+    --gradient-gray-start: #2b2d32;
+    --gradient-gray-end: #32343a;
+  }
+  
+  /* Automatic dark version [duplicate dark version]
+     –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  @media (prefers-color-scheme: dark) {
+    :root .global-hash-auto-dark-version {
+      --color-font: #fff;
+      --color-font-button: #0b0b0b;
+      --color-alert-red: #f74856;
+      --color-alert-orange: #ff970d;
+      --color-body: #222327;
+      --color-featured-label: #1a1a1a;
+      --color-featured-label-mobile: #222327;
+      --color-search-icon: #717171;
+      --color-underline-link: #414242;
+      --color-table-border: #414242;
+      --color-figcaption: #c3c6c7;
+      --color-hover-dot: #717171;
+      --color-bg-notification-success: #23bd38;
+  
+      --color-bg-textarea: #28292e;
+      --color-bg-code: #32343a;
+      --color-bg-tag: #414242;
+      --color-bg-featured-label: #fff;
+      --color-bg-featured-label-mobile: #f4f4f4;
+      --color-bg-elements: #28292e;
+      --color-bg-button-membership: #e2e5ed;
+  
+      --color-elements-one: #414242;
+      --color-elements-two: #717171;
+      --color-elements-white: #fff;
+  
+      /* Default item gradient background */
+      --gradient-gray-start: #2b2d32;
+      --gradient-gray-end: #32343a;
+    }
+  }
+  
+  /* //////////////////////////////////////////////////////////////////////////
