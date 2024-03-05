@@ -5,7 +5,7 @@ import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import { adminMenu, doctorMenu } from './menuApp';
 import './Header.scss';
-import { LANGUAGES, USER_ROLE } from '../../utils/constant'
+import { USER_ROLE } from '../../utils/constant'
 import _ from 'lodash';
 
 class Header extends Component {
@@ -65,7 +65,6 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        language: state.app.language,
         isLoggedIn: state.user.isLoggedIn,
         userInfo: state.user.userInfo
     };
