@@ -30,62 +30,25 @@ class HomeHeader extends Component {
         return (
 
             <React.Fragment>
-                <div className='home-header-container'>
-                    <div className='home-header-content'>
-                        <div className='left-content'>
-                            <img
-                                className='header-logo' src={logo}
-                                onClick={() => this.returnHome()}
-                            />
-                        </div>
-                        <div className='center-content'>
-                            <div className="searchBar">
-                                <input
-                                    id="searchQueryInput"
-                                    type="text"
-                                    name="searchQueryInput"
-                                    placeholder="Search"
-                                    defaultValue=""
-                                />
-                                <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-                                    <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
-                                        <path
-                                            fill="#666666"
-                                            d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
-
-                        </div>
-                        <div className='right-content'>
-        <ul>
-            <li><a href="#">Doctor</a></li>
-            <li>
-                <a href="#">Support</a>
-            </li>
-            <li><a onClick={() => this.handleLogin()} >Admin</a></li>
-        </ul>
-                        </div >
-                    </div >
-                </div >
-        {
-            this.props.isShowBanner === true &&
-                <div className='home-header-banner'>
-                    <div className='content-up'>
-                        <div className='title1'>
-                            ĐỐI TÁC SỨC KHỎE
-                        </div>
-                        <div className='title2'>
-                            Kết Nối Và Cung Cấp Giải Pháp Sáng Tạo Cho Mọi Nhu Cầu
-                        </div>
-
+                <div className="header">
+                    <header className="base-rectangle1" />
+                    <div className='left-content'>
+                        <img
+                            className='header-logo' src={logo}
+                            onClick={() => this.returnHome()}
+                        />
                     </div>
-                    <div className='content-down'>
-
+                    <div className="items">
+                        <div className="doctors">BÁC SĨ</div>
+                        <div className="clinics">CƠ SỞ Y TẾ</div>
+                        <div className="handbooks">CẨM NANG</div>
+                    </div>
+                    <div className="right-btn">
+                            <div className="btn-1">TƯ VẤN</div>
+                        
+                            <div className="btn-2" onClick={() => this.handleLogin()}>ĐĂNG NHẬP</div>
                     </div>
                 </div>
-        }
             </React.Fragment >
         );
     }

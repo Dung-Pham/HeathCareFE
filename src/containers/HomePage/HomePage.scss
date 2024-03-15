@@ -1,182 +1,173 @@
-// reset slick slider scss
-.slick-prev {
-    border: 1px solid red !important;
-    left: -15px !important;
-    z-index: 1000 !important;
-    height: 48px !important;
-    width: 44px !important;
-    background-color: #fff !important;
-    border: 2px solid #d7d7d7 !important;
-
-    &:hover {
-        background-color: #d7d7d7 !important;
-    }
+.for-loop,
+.home-page {
+  display: block;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.slick-disabled {
-    display: none !important;
-}
+.home-page {
+  position: absolute;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  box-sizing: border-box;
+  gap: 114.5px 0;
+  letter-spacing: normal;
+  width: 100%;
 
-.slick-prev::before,
-.slick-next::before {
-    color: green !important;
-    opacity: 0.6 !important;
-}
+  .for-loop {
+    margin: 0 200px;
+    align-self: stretch;
+    // gap: 169px;
+    max-width: 100%;
 
-.slick-next {
-    border: 1px solid red !important;
-    right: -15px !important;
-    z-index: 1000 !important;
-    height: 48px !important;
-    width: 44px !important;
-    background-color: #fff !important;
-    border: 2px solid #d7d7d7 !important;
+    //slider section  
+    .section-share {
+      height: fit-content;
+      gap: 10px;
+      background-color: #f8f8f8;
+      // margin: 100px;
+      display: flex;
+      flex-direction: column;
+      margin: 60px 0;
 
-    &:hover {
-        background-color: #d7d7d7 !important;
-    }
-}
+      .section-header {
+        height: 60px;
+        padding-top: 30px;
 
-.section-share {
-    &.section-specialty {
-        background-color: #f5f5f5;
-    }
-
-    &.section-outstanding-doctor {
-        background-color: #f5f5f5;
-    }
-
-    &.section-about {
-        border-top: 1px solid;
-        border-bottom: 1px solid;
-        height: 500px !important;
-        padding: 0 100px;
-
-        .section-about-header {
-            padding: 20px 10px;
-            font-size: 25px;
-            font-weight: 600;
+        .title-section {
+          font-size: 22px;
+          font-weight: 600;
         }
 
-        .section-about-content {
-            width: 100%;
-            display: flex;
-            gap: 15px;
+        .btn-section {
+          float: right;
+          padding: 10px 15px;
+          border: none;
+          outline: none;
+          display: block;
+          background-color: #ebebeb;
+          color: black;
+          cursor: pointer;
+          text-transform: uppercase;
 
-            .content-left {
-                width: 60%;
-            }
-
-            .content-right {
-                width: 40%;
-
-                p {
-                    text-align: justify;
-                    font-style: italic;
-                    padding: 15px;
-                }
-            }
+          &:hover {
+            color: #fff;
+            background-color: #f7d800;
+          }
         }
-    }
+      }
 
-    .section-body {
-
-        .section-customize {
-
-            .bg-img {
-                width: 278px;
-                height: 150px;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-color: #eee;
-                margin-bottom: 8px;
-
-                &.section-specialty {
-                    // background-image: url('../../assets/specialty/than-kinh.jpg');
-                }
-
-                &.section-medical-facility {
-                    // background-image: url('../../assets/medical-facility/160340-logo-diag.png');
-                }
-
-                &.section-outstanding-doctor {
-                    // background-image: url('../../assets/outstanding-doctor/anh-dai-dien-bs.jpg');
-                    width: 120px;
-                    height: 120px;
-                    border-radius: 50%;
-                }
-
-                &.section-handbook {
-                    background-image: url('../../assets/handbook/viem-loet-da-day-co-tu-khoi-duoc-khong.png');
-                }
-
-
-            }
-        }
-    }
-}
-
-.section-outstanding-doctor {
-    .outer-bg {
+      .section-body {
         display: flex;
         justify-content: center;
-    }
+        width: 100%;
+        height: 100%;
 
-    .section-customize {
-        padding: 5px;
-        cursor: pointer;
 
-        .customize-border {
-            border: 1px solid orange;
-            padding: 20px;
-        }
-    }
-}
+        .slick-slider {
+          width: 100%;
+          height: 100%;
 
-.section-share {
-    height: 330px;
+          .slick-list {
+            display: block !important;
+            overflow: hidden;
+            padding: 50px;
+            width: 100%;
 
-    .section-container {
-        margin: 0 100px;
-        display: flex;
-        flex-direction: column;
-
-        .section-header {
-            height: 60px;
-            padding-top: 30px;
-            margin-bottom: 30px;
-
-            .title-section {
-                font-size: 22px;
-                font-weight: 600;
+            .slick-prev,
+            .slick-next {
+              display: none !important;
             }
 
-            .btn-section {
-                float: right;
-                padding: 10px 15px;
-                border: none;
-                outline: none;
-                display: block;
-                background-color: #ebebeb;
-                color: black;
-                cursor: pointer;
-                text-transform: uppercase;
+            .slick-track {
 
-                &:hover {
-                    color: #fff;
-                    background-color: #f7d800;
+              .slick-slide {
+
+                .section-customize {
+                  // width:276px !important;
+                  width: fit-content !important;
+                  cursor: pointer;
+                  
                 }
+              }
             }
+          }
         }
+
+        .custom-prevArrow,
+        .custom-nextArrow {
+          z-index: 99999;
+          top: 50%;
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          color: var(--color-steelblue);
+          cursor: pointer;
+
+          &:hover {
+            fill: #094574;
+            cursor: pointer;
+          }
+
+          .icon {
+            width: 40px;
+            height: 40px
+          }
+        }
+
+        .custom-prevArrow {
+          order: -1;
+          left: 30px;
+        }
+
+        // .slick-disabled {
+        //   display: none !important;
+        // }
+        .custom-nextArrow {
+          order: 1;
+          right: 30px;
+        }
+      }
     }
+    .section-clinic {
+      .slick-slider {
+        .slick-list {
+          padding-left: 20px !important;
+
+        }
+      }
+    }
+    .section-specialty{
+      padding: 0 40px;
+      .section-body{
+          // margin: 0 20px;
+          flex-wrap: wrap;
+          gap: 30px;
+      }
+  }
+
+  }
 }
 
-.home-footer {
-    text-align: center;
-    padding-top: 10px;
+// }
 
-    a {
-        text-decoration: none;
-    }
+@media screen and (max-width: 750px) {
+  .for-loop {
+    gap: 84px 0;
+  }
+
+  .home-page {
+    gap: 57px 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .for-loop {
+    gap: 42px 0;
+  }
+
+  .home-page {
+    gap: 29px 0;
+  }
 }

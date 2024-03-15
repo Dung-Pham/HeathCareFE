@@ -1,0 +1,102 @@
+$color_1: var(--color-steelblue);
+$color_2: var(--color-gray-100);
+$font-family_1: var(--font-ubuntu);
+
+
+.tag-clinic {
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	width: 275px;
+	height: 275px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+	// padding: 20px;
+	box-sizing: border-box;
+	border-radius: 20px;
+	box-shadow: 1px 2px 5px 2px #6f6d6d2c;
+    
+	.masked-doctor-image {
+		width: fit-content;
+		left: 0;
+		top: 0;
+        
+        .img-black{
+            position: absolute;
+            background-image: linear-gradient(180deg, #ffffff00 40%, #040404 );
+            width: 260px;
+			height: 260px;
+            z-index: 1;
+            border-radius: 14px;
+            display:flex;
+            justify-content: center;
+            align-items: flex-start;
+            // transition: background-image 2s;
+            .icon-specialty{
+                margin: 40px;
+                width: 40px;
+                height: 40px;
+                z-index: 2;
+                color:#04040400
+            }
+            
+            
+        }
+		.img-doctor-content {
+            
+			width: 260px;
+			height: 260px;
+			object-fit: cover;
+			border-radius: 14px;
+		}
+
+	}
+
+	.container {
+        z-index: 3;
+		position: absolute;
+		border-radius: 12px;
+        bottom: 0;
+		
+		.content-container{
+			width: 100%;
+			height: 100%;
+            display:flex;
+            justify-content: center;
+			.txt-content {
+				font-family: "Lexend Deca", sans-serif;
+                color:white;
+                text-align: center;
+				font-size: var(--font-size-lg);
+				line-height: 32px;
+				font-weight: 400;
+			}
+			
+		}
+		
+
+	}
+
+	&:hover { 
+        
+        .masked-doctor-image{
+            
+            .img-black{
+                background-image: linear-gradient(180deg, #ffffff00 , #10213fd0 0% );
+                .icon-specialty{
+                    width: 60px;
+                    height: 60px;
+                    color:#ffffff;
+                }
+            }
+        }
+		.container {
+            top: 160px;
+			.txt-content {
+				font-size:20px;
+			}
+		}
+		
+	}
+}

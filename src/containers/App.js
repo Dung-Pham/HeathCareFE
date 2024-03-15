@@ -19,7 +19,10 @@ import VerifyEmail from './Patient/VerifyEmail';
 import DetailHandbook from './Patient/DetailHandbook';
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import DetailClinic from './Patient/Clinic/DetailClinic';
-
+import doctor_more from './Patient/Doctor/doctor_more';
+import handbook_more from './Patient/handbook_more';
+import specialty_more from './Patient/Specialty/specialty_more';
+import clinic_more from './Patient/Clinic/clinic_more';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -58,6 +61,10 @@ class App extends Component {
                                     <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                     <Route path={path.DETAIL_HANDBOOK} component={DetailHandbook} />
+                                    <Route path={path.DOCTOR} component={doctor_more} />
+                                    <Route path={path.SPECIALTY} component={specialty_more} />
+                                    <Route path={path.CLINIC} component={clinic_more} />
+                                    <Route path={path.HANDBOOK} component={handbook_more} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

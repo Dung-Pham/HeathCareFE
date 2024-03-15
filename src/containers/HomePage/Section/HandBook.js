@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Slider from "react-slick";
 import * as actions from '../../../store/actions'
 import { withRouter } from 'react-router-dom';
-
+import TagHandbook from '../../../components/tag-homepage/tag-handbook';
+import handbook_sample from '../../../assets/handbook/handbook-sample.jpg'
 class Handbook extends Component {
     constructor(props) {
         super(props)
@@ -31,6 +32,13 @@ class Handbook extends Component {
     }
     render() {
         let { arrHandbooks } = this.state
+        const settings = {
+            // dots: true, // Hiển thị chấm tròn chỉ số
+            infinite: true, // Cho phép cuộn vô hạn
+            speed: 500, // Tốc độ cuộn (ms)
+            slidesToShow: 3, // Số lượng slide hiển thị trên mỗi lần cuộn
+            slidesToScroll: 1 // Số lượng slide cuộn mỗi lần
+        };
         console.log('handbookHomeRedux::::::', this.props.handbookHomeRedux)
         return (
             <div className='section-share section-handbook'>
@@ -40,7 +48,7 @@ class Handbook extends Component {
                         <button className='btn-section'>Xem thêm</button>
                     </div>
                     <div className='section-body'>
-                        <Slider {...this.props.settings}>
+                        <Slider {...settings}>
                             {arrHandbooks && arrHandbooks.length > 0 &&
                                 arrHandbooks.map((item, index) => {
                                     let imageBase64 = ''
@@ -53,31 +61,40 @@ class Handbook extends Component {
                                         <div className='section-customize' key={index}
                                             onClick={() => this.handleViewDetailHandbook(item)}
                                         >
-                                            <div className='section-border'>
-                                                <div className='outer-bg'>
-                                                    <div className='bg-img section-handbook'
-                                                        style={{ backgroundImage: `url(${imageBase64})`, }}
-                                                    ></div>
-                                                </div>
-
-                                                <div className='position text-center'>
-                                                    <div style={{
-                                                        width: '300px',
-                                                        whiteSpace: 'nowrap',
-                                                        overflow: 'hidden',
-                                                        textOverflow: 'ellipsis',
-                                                        font: '17px sans-serif',
-                                                        textDecoration: 'none',
-                                                        lineHeight: '3',
-                                                        WebkitLineClamp: '3'
-
-                                                    }}>
-                                                        {name}
-                                                    </div>
-
-                                                </div>
-                                            </div>
+                                            <TagHandbook
+                                                date="12/03/2024"
+                                                description={item.name}
+                                                imageSrc={handbook_sample}
+                                            />
                                         </div>
+                                        // <div className='section-customize' key={index}
+                                        //     onClick={() => this.handleViewDetailHandbook(item)}
+                                        // >
+                                        //     <div className='section-border'>
+                                        //         <div className='outer-bg'>
+                                        //             <div className='bg-img section-handbook'
+                                        //                 style={{ backgroundImage: `url(${imageBase64})`, }}
+                                        //             ></div>
+                                        //         </div>
+
+                                        //         <div className='position text-center'>
+                                        //             <div style={{
+                                        //                 width: '300px',
+                                        //                 whiteSpace: 'nowrap',
+                                        //                 overflow: 'hidden',
+                                        //                 textOverflow: 'ellipsis',
+                                        //                 font: '17px sans-serif',
+                                        //                 textDecoration: 'none',
+                                        //                 lineHeight: '3',
+                                        //                 WebkitLineClamp: '3'
+
+                                        //             }}>
+                                        //                 {name}
+                                        //             </div>
+
+                                        //         </div>
+                                        //     </div>
+                                        // </div>
                                     )
                                 })}
                         </Slider>

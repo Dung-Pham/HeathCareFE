@@ -5,9 +5,8 @@ import * as actions from '../../../store/actions'
 import { LANGUAGES } from '../../../utils/constant'
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router-dom';
-import TagDoctor from '../../../components/tag-homepage/tag-doctor';
 
-class OutStandingDoctor extends Component {
+class doctor_more  extends Component {
 
     constructor(props) {
         super(props)
@@ -58,16 +57,12 @@ class OutStandingDoctor extends Component {
                                         imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                                     }
                                     let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`
+                                    let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`
                                     return (
                                         <div className='section-customize' key={index}
                                             onClick={() => this.handleViewDetailDoctor(item)}
                                         >
-                                            <TagDoctor
-                                                date= "12/03/2024"
-                                                description={nameVi}
-                                                imageSrc={imageBase64}
-                                            />
-                                            {/* <div className='customize-border'>
+                                            <div className='customize-border'>
                                                 <div className='outer-bg'>
                                                     <div className='bg-img section-outstanding-doctor'
                                                         style={{ backgroundImage: `url(${imageBase64})`, }}
@@ -77,7 +72,7 @@ class OutStandingDoctor extends Component {
                                                     <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
                                                     <div>Thần Kinh 1</div>
                                                 </div>
-                                            </div> */}
+                                            </div>
                                         </div>
                                     )
                                 })}
@@ -104,4 +99,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(doctor_more ));
