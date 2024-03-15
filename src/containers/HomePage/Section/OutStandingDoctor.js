@@ -6,11 +6,13 @@ import { LANGUAGES } from '../../../utils/constant'
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import TagDoctor from '../../../components/tag-homepage/tag-doctor';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 class OutStandingDoctor extends Component {
 
     constructor(props) {
         super(props)
+        this.sliderRef = React.createRef(); // Tạo một tham chiếu
         this.state = {
             arrDoctors: [],
         }
@@ -50,7 +52,7 @@ class OutStandingDoctor extends Component {
                         </button>
                     </div>
                     <div className='section-body'>
-                        <Slider {...this.props.settings}>
+                        <Slider ref={this.sliderRef} {...this.props.settings}>
                             {arrDoctors && arrDoctors.length > 0 &&
                                 arrDoctors.map((item, index) => {
                                     let imageBase64 = ''
@@ -82,6 +84,22 @@ class OutStandingDoctor extends Component {
                                     )
                                 })}
                         </Slider>
+                        <button className="custom-prevArrow" onClick={() => this.sliderRef.current.slickPrev()}>
+                            <FontAwesomeIcon
+                                className='icon'
+                                icon={faChevronRight}
+                                flip="horizontal"
+                                size="2xs"
+                            />
+                        </button>
+                        <button className="custom-nextArrow" onClick={() => this.sliderRef.current.slickNext()}>
+                            <FontAwesomeIcon
+                                className='icon'
+                                icon={faChevronRight}
+                                flip="vertical"
+                                size="2xs"
+                            />
+                        </button>
                     </div>
                 </div>
             </div>

@@ -5,9 +5,12 @@ import * as actions from '../../../store/actions'
 import { withRouter } from 'react-router-dom';
 import TagHandbook from '../../../components/tag-homepage/tag-handbook';
 import handbook_sample from '../../../assets/handbook/handbook-sample.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 class Handbook extends Component {
     constructor(props) {
         super(props)
+        this.sliderRef = React.createRef(); // Tạo một tham chiếu
         this.state = {
             arrHandbooks: [],
         }
@@ -48,7 +51,7 @@ class Handbook extends Component {
                         <button className='btn-section'>Xem thêm</button>
                     </div>
                     <div className='section-body'>
-                        <Slider {...settings}>
+                        <Slider  ref={this.sliderRef} {...settings}>
                             {arrHandbooks && arrHandbooks.length > 0 &&
                                 arrHandbooks.map((item, index) => {
                                     let imageBase64 = ''
@@ -67,37 +70,25 @@ class Handbook extends Component {
                                                 imageSrc={handbook_sample}
                                             />
                                         </div>
-                                        // <div className='section-customize' key={index}
-                                        //     onClick={() => this.handleViewDetailHandbook(item)}
-                                        // >
-                                        //     <div className='section-border'>
-                                        //         <div className='outer-bg'>
-                                        //             <div className='bg-img section-handbook'
-                                        //                 style={{ backgroundImage: `url(${imageBase64})`, }}
-                                        //             ></div>
-                                        //         </div>
-
-                                        //         <div className='position text-center'>
-                                        //             <div style={{
-                                        //                 width: '300px',
-                                        //                 whiteSpace: 'nowrap',
-                                        //                 overflow: 'hidden',
-                                        //                 textOverflow: 'ellipsis',
-                                        //                 font: '17px sans-serif',
-                                        //                 textDecoration: 'none',
-                                        //                 lineHeight: '3',
-                                        //                 WebkitLineClamp: '3'
-
-                                        //             }}>
-                                        //                 {name}
-                                        //             </div>
-
-                                        //         </div>
-                                        //     </div>
-                                        // </div>
                                     )
                                 })}
                         </Slider>
+                        <button className="custom-prevArrow" onClick={() => this.sliderRef.current.slickPrev()}>
+                            <FontAwesomeIcon
+                                className='icon'
+                                icon={faChevronRight}
+                                flip="horizontal"
+                                size="2xs"
+                            />
+                        </button>
+                        <button className="custom-nextArrow" onClick={() => this.sliderRef.current.slickNext()}>
+                            <FontAwesomeIcon
+                                className='icon'
+                                icon={faChevronRight}
+                                flip="vertical"
+                                size="2xs"
+                            />
+                        </button>
                     </div>
                 </div>
             </div>
