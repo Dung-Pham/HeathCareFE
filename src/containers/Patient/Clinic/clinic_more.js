@@ -4,14 +4,19 @@ import Slider from "react-slick";
 import { getAllClinic } from '../../../services/userService'
 import { withRouter } from 'react-router'
 import './clinic_more.scss'
-import TagMore from '../../../components/tag-more/tag-more';
+import TagMoreClinic from '../../../components/tag-more/tag-more-clinic';
+import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter'
+
 
 class clinic_more extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            dataClinics: []
+            dataClinics: [],
+            currentPage: 1,
+            newsPerPage: 6,
         }
     }
 
@@ -30,40 +35,76 @@ class clinic_more extends Component {
         }
     }
 
+    chosePage = (event) => {
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+    }
     render() {
         let { dataClinics } = this.state
+        const currentPage = this.state.currentPage;
+        const newsPerPage = this.state.newsPerPage;
+        const indexOfLastNews = currentPage * newsPerPage;
+        const indexOfFirstNews = indexOfLastNews - newsPerPage;
+        const currentList = dataClinics.slice(indexOfFirstNews, indexOfLastNews);
+        // const renderTodos = currentTodos.map((todo, index) => {
+        // return <TableItem stt={index + 1 + (currentPage - 1)*newsPerPage} key={index} data={todo} />;
+        // });
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(dataClinics.length / newsPerPage); i++) {
+            pageNumbers.push(i);
+        }
+        
         return (
-            <div className='section-share section-medical-facility'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'>Cơ sở y tế nổi bật</span>
-                        <button className='btn-section'>Xem thêm</button>
+            <div className='clinic-more'>
+                <HomeHeader />
+                <div className='clinic-more-container'>
+                    <div className='header'>
+                        <b>Cơ sở y tế</b>
                     </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
-                            {dataClinics && dataClinics.length > 0 &&
-                                dataClinics.map((item, index) => {
-                                    return (
-                                        <div key={index}
-                                             onClick={() => this.handleViewDetailClinic(item)}
-                                        >
-                                            <TagMore
-                                                date= "12/03/2024"
-                                                description={item.name}
-                                                imageSrc="/rectangle-21.svg"
-                                            />
-                                            {/* <div className='bg-img section-medical-facility'
-                                                style={{ backgroundImage: `url(${item.image})` }}
-                                            ></div>
-                                            <div className='clinic-name'>{item.name}</div> */}
-                                        </div>
-                                    )
+                    <div className='list'>
+                        {currentList && currentList.length > 0 &&
+                            currentList.map((data, index) => {
+                                return (
+                                    <div key={index}
+                                        onClick={() => this.handleViewDetailClinic(data)}
+                                    >
+                                        <TagMoreClinic
+                                            date="12/03/2024"
+                                            description={data.name}
+                                            imageSrc={data.image}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+
+                    </div>
+                    {/* Đánh số trang */}
+                    <div className="pagination-custom">
+                        <ul className="page-numbers">
+                            {
+                                pageNumbers.map(number => {
+                                    if (this.state.currentPage === number) {
+                                        return (
+                                            <li key={number} id={number} className="active">
+                                                {number}
+                                            </li>
+                                        )
+                                    }
+                                    else {
+                                        return (
+                                            <li key={number} id={number} onClick={this.chosePage} >
+                                                {number}
+                                            </li>
+                                        )
+                                    }
                                 })
                             }
-
-                        </Slider>
+                        </ul>
                     </div>
                 </div>
+                <HomeFooter />
             </div>
         );
     }

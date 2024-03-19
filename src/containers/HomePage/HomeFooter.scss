@@ -1,0 +1,59 @@
+.home-footer{
+    // position: absolute;
+    width: 100%;
+    height: 300px;
+    // border: 2px solid red;
+    // margin-top: auto;
+    margin-block: 0 ;
+    .footer-container{
+        width: 100%;
+        height: 100%;
+        display: flex ;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 100px;
+        background-color: var(--color-steelblue);
+        .txt{
+            margin: 0;
+            color: white;
+            // font-weight: 20px;
+        }
+        .container{
+            margin-left: 100px;
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
+        }
+        .health-care{
+            flex-grow: 3;
+            
+        }
+        .quick-link{
+            flex-grow: 1;
+            // margin: 0 300px; 
+            display: flex;
+            align-items: center;
+            .txt{
+                cursor: pointer;
+            }
+        }
+        .contact{
+            flex-grow: 2;
+            .cnt{
+                margin-top:20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                .icon{
+                    width: 20px;
+                    height: 20px;
+                    color: white;
+                }
+            }
+        }
+    }
+}

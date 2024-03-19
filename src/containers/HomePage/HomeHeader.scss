@@ -32,6 +32,8 @@ $background-color_4: transparent;
     bottom: 0;
     left: 0;
     background: linear-gradient(to left, $background-color_1 50%, white );
+    box-shadow: 1px 2px 5px 2px #2231452c;
+
 }
 
 .about {
@@ -61,6 +63,10 @@ $background-color_4: transparent;
         display: inline-block;
         flex-shrink: 0;
         font-family: "Lexend Deca", sans-serif;
+
+        &:hover {
+            color: var(--color-darkslateblue);
+        }
     }
 }
 
@@ -75,15 +81,18 @@ $background-color_4: transparent;
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: 0 20px 30px rgba(24, 44, 79, 0.25);
+    border-radius: 6px ;
+    &:hover {
+        box-shadow: 10px 10px 20px rgba(24, 44, 79, 0.25);
+    }
 }
 .btn-1 {
-    border-radius: 6px ;
     border: 1.5px solid white;
     
 }
 .btn-2 {
     background-color: var(--color-seagreen);
+    
 }
 
 .header {

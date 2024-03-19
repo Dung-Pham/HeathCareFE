@@ -1,8 +1,11 @@
 .detail-specialty-container {
+    min-height: 555px;
     .description-specialty {
         background-color: white !important;
         padding: 10px;
         margin: 15px 0;
+        height: 800px;;
+
 
         h1,
         h2,
@@ -13,7 +16,7 @@
     }
 
     .search-sp-doctor {
-        select {
+        .select {
             height: 30px;
             padding: 5px 8px;
             border: none;

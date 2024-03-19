@@ -8,7 +8,8 @@ import DoctorExtraInfo from '../Doctor/DoctorExtraInfo';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getDetailSpecialtyById, getAllCodeService } from '../../../services/userService'
 import _ from 'lodash';
-
+import HomeFooter from '../../HomePage/HomeFooter'
+<HomeFooter />
 class DetailSpecialty extends Component {
 
     constructor(props) {
@@ -158,7 +159,7 @@ class DetailSpecialty extends Component {
                         })
                     }
                 </div>
-
+                <HomeFooter />
             </div>
         );
     }

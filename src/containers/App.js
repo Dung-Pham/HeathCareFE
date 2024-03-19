@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment,} from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter as Router } from 'connected-react-router';
@@ -23,6 +23,7 @@ import doctor_more from './Patient/Doctor/doctor_more';
 import handbook_more from './Patient/handbook_more';
 import specialty_more from './Patient/Specialty/specialty_more';
 import clinic_more from './Patient/Clinic/clinic_more';
+
 class App extends Component {
 
     handlePersistorState = () => {
@@ -43,13 +44,15 @@ class App extends Component {
         this.handlePersistorState();
     }
 
+    
+
     render() {
+        
         return (
             <Fragment>
                 <Router history={history}>
                     <div className="main-container">
                         <div className="content-container">
-                            <CustomScrollbars style={{ height: '100vh', width: '100%' }}>
                                 <Switch>
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
@@ -66,7 +69,6 @@ class App extends Component {
                                     <Route path={path.CLINIC} component={clinic_more} />
                                     <Route path={path.HANDBOOK} component={handbook_more} />
                                 </Switch>
-                            </CustomScrollbars>
                         </div>
 
                         {/* <ToastContainer

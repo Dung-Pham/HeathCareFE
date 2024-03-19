@@ -24,7 +24,22 @@ class HomeHeader extends Component {
             this.props.history.push(`/login`)
         }
     }
+    handleViewDoctorMore = () => {
+        if (this.props.history) {
 
+            this.props.history.push(`/doctor_more`)
+        }
+    }
+    handleViewClinicMore = () => {
+        if (this.props.history) {
+            this.props.history.push(`/clinic_more`)
+        }
+    }
+    handleViewHandbookMore = () => {
+        if (this.props.history) {
+            this.props.history.push(`/handbook_more`)
+        }
+    }
     render() {
         let language = this.props.language
         return (
@@ -39,9 +54,9 @@ class HomeHeader extends Component {
                         />
                     </div>
                     <div className="items">
-                        <div className="doctors">BÁC SĨ</div>
-                        <div className="clinics">CƠ SỞ Y TẾ</div>
-                        <div className="handbooks">CẨM NANG</div>
+                        <div className="doctors" onClick={() => this.handleViewDoctorMore()}>BÁC SĨ</div>
+                        <div className="clinics" onClick={() => this.handleViewClinicMore()}>CƠ SỞ Y TẾ</div>
+                        <div className="handbooks" onClick={() => this.handleViewHandbookMore()}>CẨM NANG</div>
                     </div>
                     <div className="right-btn">
                             <div className="btn-1">TƯ VẤN</div>

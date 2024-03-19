@@ -9,7 +9,7 @@ class About extends Component {
             <div className="composite-node">
                 <div className="grouping-node">
                     <h1 className="hotels-how-to-container">
-                            Welcome to <b className="livestock">Health Care</b> Kết Nối Và Cung Cấp Giải Pháp Sáng Tạo Cho Mọi Nhu Cầu
+                            Welcome to <b className="livestock">Health Care</b> Kết nối và cung cấp giải pháp sáng tạo cho mọi nhu cầu
                     </h1>
                     <h3 className="so-youre-trying-container">
                         <p className="buy-fit-for-slaughter-and">

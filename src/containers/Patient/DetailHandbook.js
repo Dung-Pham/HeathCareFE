@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import HomeHeader from '../HomePage/HomeHeader';
 import './DetailHandbook.scss'
 import { getDetailHandbookService } from '../../services/userService'
+import HomeFooter from '../HomePage/HomeFooter'
 
 class DetailHandbook extends Component {
 
@@ -61,6 +62,7 @@ class DetailHandbook extends Component {
                         </div>
                     </div>
                 </div>
+                <HomeFooter />
             </div>
         );
     }

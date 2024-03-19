@@ -1,8 +1,5 @@
 import React from 'react';
 import "./tag-handbook.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
-import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
 
 const TagHandbook = ({ date, description, imageSrc }) => {
   return (

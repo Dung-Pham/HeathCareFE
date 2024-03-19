@@ -340,7 +340,7 @@ export const getRequiredDoctorInfoFailed = () => ({
 export const getHandbookHome = () => {
     return async (dispatch, getState) => {
         try {
-            let res = await getHandbookHomeService('5')
+            let res = await getHandbookHomeService('9')
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_HANDBOOK_HOME_SUCCESS,

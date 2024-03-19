@@ -5,13 +5,22 @@ import * as actions from '../../../store/actions'
 import { LANGUAGES } from '../../../utils/constant'
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router-dom';
+import TagDoctor from '../../../components/tag-homepage/tag-doctor';
+import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter'
+import Loading from '../../../components/loading/loading'
+import './doctor_more.scss';
 
-class doctor_more  extends Component {
+class DoctorMore extends Component {
 
     constructor(props) {
         super(props)
+        // this.sliderRef = React.createRef(); // Tạo một tham chiếu
         this.state = {
             arrDoctors: [],
+            isLoading: true,
+            currentPage: 1,
+            newsPerPage: 6,
         }
     }
 
@@ -23,8 +32,10 @@ class doctor_more  extends Component {
         }
     }
 
-    componentDidMount() {
-        this.props.loadTopDoctors()
+    async componentDidMount() {
+        await this.props.loadTopDoctors();
+        this.props.settings && this.setState({ isLoading: false });
+
     }
 
     handleViewDetailDoctor = (doctor) => {
@@ -34,52 +45,84 @@ class doctor_more  extends Component {
         }
     }
 
+    chosePage = (event) => {
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+    }
     render() {
-        let { arrDoctors } = this.state
-        let { language } = this.props
+        let { arrDoctors, isLoading } = this.state
+        // let { language } = this.props
+        const currentPage = this.state.currentPage;
+        const newsPerPage = this.state.newsPerPage;
+        const indexOfLastNews = currentPage * newsPerPage;
+        const indexOfFirstNews = indexOfLastNews - newsPerPage;
+        const currentList = arrDoctors.slice(indexOfFirstNews, indexOfLastNews);
+        // const renderTodos = currentTodos.map((todo, index) => {
+        // return <TableItem stt={index + 1 + (currentPage - 1)*newsPerPage} key={index} data={todo} />;
+        // });
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(arrDoctors.length / newsPerPage); i++) {
+            pageNumbers.push(i);
+        }
         return (
-            <div className='section-share section-outstanding-doctor'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'>
-                            <FormattedMessage id='home-page.outstanding-doctor' />
-                        </span>
-                        <button className='btn-section'>
-                            <FormattedMessage id='home-page.more-info' />
-                        </button>
-                    </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
-                            {arrDoctors && arrDoctors.length > 0 &&
-                                arrDoctors.map((item, index) => {
-                                    let imageBase64 = ''
-                                    if (item.image) {
-                                        imageBase64 = new Buffer(item.image, 'base64').toString('binary')
-                                    }
-                                    let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`
-                                    let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`
-                                    return (
-                                        <div className='section-customize' key={index}
-                                            onClick={() => this.handleViewDetailDoctor(item)}
-                                        >
-                                            <div className='customize-border'>
-                                                <div className='outer-bg'>
-                                                    <div className='bg-img section-outstanding-doctor'
-                                                        style={{ backgroundImage: `url(${imageBase64})`, }}
-                                                    ></div>
+            <>
+                <div className='doctor-more'>
+                    <HomeHeader />
+                    <div className='doctor-more-container'>
+                        <div className='header'>
+                            <b>Bác sĩ</b>
+                        </div>
+                        {/* {isLoading ? (<Loading />) :
+                            ( */}
+                                <div className='list'>
+                                    {currentList && currentList.length > 0 &&
+                                        currentList.map((item, index) => {
+                                            let imageBase64 = ''
+                                            if (item.image) {
+                                                imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+                                            }
+                                            let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`
+                                            return (
+                                                <div className='section-customize' key={index}
+                                                    onClick={() => this.handleViewDetailDoctor(item)}
+                                                >
+                                                    <TagDoctor
+                                                        date="12/03/2024"
+                                                        description={nameVi}
+                                                        imageSrc={imageBase64}
+                                                    />
                                                 </div>
-                                                <div className='position text-center'>
-                                                    <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
-                                                    <div>Thần Kinh 1</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                        </Slider>
+                                            )
+                                        })}
+                                </div>
+                            {/* )} */}
+                        <div className="pagination-custom">
+                            <ul className="page-numbers">
+                                {
+                                    pageNumbers.map(number => {
+                                        if (this.state.currentPage === number) {
+                                            return (
+                                                <li key={number} id={number} className="active">
+                                                    {number}
+                                                </li>
+                                            )
+                                        }
+                                        else {
+                                            return (
+                                                <li key={number} id={number} onClick={this.chosePage} >
+                                                    {number}
+                                                </li>
+                                            )
+                                        }
+                                    })
+                                }
+                            </ul>
+                        </div>
                     </div>
+                    <HomeFooter />
                 </div>
-            </div>
+            </>
         );
     }
 
@@ -99,4 +142,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(doctor_more ));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DoctorMore));
