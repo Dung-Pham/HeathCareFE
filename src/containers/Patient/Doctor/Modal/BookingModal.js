@@ -8,7 +8,7 @@ import _ from 'lodash';
 import DatePicker from '../../../../components/Input/DatePicker';
 import Select from 'react-select';
 import * as actions from '../../../../store/actions'
-// import { LANGUAGES } from '../../../../utils'
+import { LANGUAGES } from '../../../../utils'
 import { postBookAppointment } from '../../../../services/userService'
 import { toast } from 'react-toastify'
 import moment from 'moment/moment';
@@ -37,12 +37,12 @@ class BookingModal extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        // if (prevProps.language !== this.props.language) {
-        //     let dataSelect = this.buildDataInputSelect(this.props.allGenders)
-        //     this.setState({
-        //         genderArr: dataSelect,
-        //     })
-        // }
+        if (prevProps.language !== this.props.language) {
+            let dataSelect = this.buildDataInputSelect(this.props.allGenders)
+            this.setState({
+                genderArr: dataSelect,
+            })
+        }
 
         if (prevProps.allGenders !== this.props.allGenders) {
             let dataSelect = this.buildDataInputSelect(this.props.allGenders)
@@ -67,10 +67,11 @@ class BookingModal extends Component {
 
     buildDataInputSelect = (data) => {
         let result = []
+        let { language } = this.props
         if (data && data.length > 0) {
             data.map((item, index) => {
                 let object = {}
-                object.label = item.valueVi
+                object.label = language === LANGUAGES.VI ? item.valueVi : item.valueEn
                 object.value = item.keyMap
                 result.push(object)
             })
@@ -100,17 +101,23 @@ class BookingModal extends Component {
     }
 
     buildTimeBooking = (dataTime) => {
+        let { language } = this.props
         if (dataTime && !_.isEmpty(dataTime)) {
-            let time = dataTime.timeTypeData.valueVi 
-            let date = moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
+            let time = language === LANGUAGES.VI ? dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn
+            let date = language === LANGUAGES.VI ?
+                moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY') :
+                moment.unix(+dataTime.date / 1000).locale('en').format('ddd - DD/MM/YYYY')
             return `${time} - ${date}`
         }
         return ''
     }
 
     buildDoctorName = (dataTime) => {
+        let { language } = this.props
         if (dataTime && !_.isEmpty(dataTime)) {
-            let name =  `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}`
+            let name = language === LANGUAGES.VI ?
+                `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}` :
+                `${dataTime.doctorData.firstName} ${dataTime.doctorData.lastName}`
             return name
         }
         return ''
@@ -136,6 +143,7 @@ class BookingModal extends Component {
             birthday: date,
             selectedGender: this.state.selectedGender.value,
             timeType: this.state.timeType,
+            language: this.props.language,
             timeString,
             doctorName
         })
