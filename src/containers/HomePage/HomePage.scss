@@ -16,7 +16,7 @@
   width: 100%;
 
   .for-loop {
-    margin: 0 200px;
+    margin: 0 120px;
     align-self: stretch;
     // gap: 169px;
     max-width: 100%;
@@ -35,7 +35,7 @@
         padding-top: 30px;
 
         .title-section {
-          font-size: 22px;
+          font-size: 20px;
           font-weight: 600;
         }
 
@@ -71,9 +71,9 @@
           .slick-list {
             display: block !important;
             overflow: hidden;
-            padding: 50px;
+            padding: 20px;
             width: 100%;
-
+            // gap: 20px;
             .slick-prev,
             .slick-next {
               display: none !important;
@@ -110,8 +110,8 @@
           }
 
           .icon {
-            width: 40px;
-            height: 40px
+            width: 30px;
+            height: 30px
           }
         }
 
@@ -132,13 +132,13 @@
     .section-clinic {
       .slick-slider {
         .slick-list {
-          padding-left: 20px !important;
+          padding-left: 10px !important;
 
         }
       }
     }
     .section-specialty{
-      padding: 0 40px;
+      padding: 0 20px;
       .section-body{
           // margin: 0 20px;
           flex-wrap: wrap;

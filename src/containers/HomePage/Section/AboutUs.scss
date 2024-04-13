@@ -9,7 +9,7 @@ $background-color_4: var(--color-seagreen);
 
 .hero-child {
 	width: 1500px;
-	height: 980px;
+	height: 680px;
 	position: relative;
 	background-color: $background-color_1;
 	display: none;
@@ -25,11 +25,11 @@ $background-color_4: var(--color-seagreen);
 	margin: 0;
 	position: relative;
 	font-size: inherit;
-	line-height: 78px;
+	line-height: 45px;
 	display: inline-block;
 	max-width: 100%;
 	z-index: 1;
-    font-size: 56px;
+    font-size: 40px;
 	font-family: $font-family_2;
     color: var(--color-white);
 }
@@ -38,7 +38,7 @@ $background-color_4: var(--color-seagreen);
 	margin: 0;
 	align-self: stretch;
 	position: relative;
-	font-size: 23px;
+	font-size: 15px;
 	line-height: 33px;
 	font-style: italic;
 	font-weight: 400;
@@ -47,13 +47,13 @@ $background-color_4: var(--color-seagreen);
     color: var(--color-white);
 }
 .grouping-node {
-    padding: 150px 50px 150px 200px;
+    padding: 100px 50px 150px 110px;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-start;
-	gap: 43px 0;
+	gap: 28px 0;
 	min-width: 441px;
 	max-width: 100%;
 }
@@ -64,15 +64,15 @@ $background-color_4: var(--color-seagreen);
     align-self: stretch;
     flex: 1;
     position: relative;
-    border-radius: var(--br-3xs);
+    border-radius: 8px;
     overflow: hidden;
     object-fit: cover; /* Đây là thay đổi */
     z-index: 1;
-    height: 520px;
+    height: 320px;
 }
 
 .else-node {
-	height: 865px;
+	height: 240px;
 	width: 50%;
 	// flex-direction: column;
 	// justify-content: flex-start;
@@ -81,7 +81,7 @@ $background-color_4: var(--color-seagreen);
 	// display: flex;
 	// align-items: flex-start;
 	box-sizing: border-box;
-    padding: 150px 200px 150px 50px !important;
+    padding: 100px 150px 100px 30px !important;
 }
 .composite-node {
     background-color: var(--color-darkslateblue);

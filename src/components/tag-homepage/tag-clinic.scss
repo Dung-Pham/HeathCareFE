@@ -6,8 +6,10 @@ $font-family_1: var(--font-ubuntu);
 .tag-clinic {
 	position: relative;
 	background-color: rgb(255, 255, 255);
-	width: 275px;
-	height: 275px;
+	width: 185px;
+	height: 185px;
+	// width: 275px;
+	// height: 275px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -25,8 +27,10 @@ $font-family_1: var(--font-ubuntu);
         .img-black{
             position: absolute;
             background-image: linear-gradient(180deg, #ffffff00 40%, #040404 );
-            width: 260px;
-			height: 260px;
+            // width: 260px;
+			// height: 260px;
+			width: 170px;
+			height: 170px;
             z-index: 1;
             border-radius: 14px;
             display:flex;
@@ -34,9 +38,9 @@ $font-family_1: var(--font-ubuntu);
             align-items: flex-start;
             // transition: background-image 2s;
             .icon-specialty{
-                margin: 40px;
-                width: 40px;
-                height: 40px;
+                margin: 20px;
+                width: 20px;
+                height: 20px;
                 z-index: 2;
                 color:#04040400
             }
@@ -45,8 +49,8 @@ $font-family_1: var(--font-ubuntu);
         }
 		.img-doctor-content {
             
-			width: 260px;
-			height: 260px;
+			width: 170px;
+			height: 170px;
 			object-fit: cover;
 			border-radius: 14px;
 		}
@@ -68,8 +72,8 @@ $font-family_1: var(--font-ubuntu);
 				font-family: "Lexend Deca", sans-serif;
                 color:white;
                 text-align: center;
-				font-size: var(--font-size-lg);
-				line-height: 32px;
+				font-size: 14px;
+				line-height: 19px;
 				font-weight: 400;
 			}
 			
@@ -85,16 +89,16 @@ $font-family_1: var(--font-ubuntu);
             .img-black{
                 background-image: linear-gradient(180deg, #ffffff00 , #10213fd0 0% );
                 .icon-specialty{
-                    width: 60px;
-                    height: 60px;
+                    width: 40px;
+                    height: 40px;
                     color:#ffffff;
                 }
             }
         }
 		.container {
-            top: 160px;
+            top: 100px;
 			.txt-content {
-				font-size:20px;
+				font-size:16px;
 			}
 		}
 		

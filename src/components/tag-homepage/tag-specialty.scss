@@ -6,15 +6,17 @@ $font-family_1: var(--font-ubuntu);
 .tag-specialty {
 	position: relative;
 	background-color: rgb(255, 255, 255);
-	width: 345px;
-	height: 110px;
+	// width: 345px;
+	// height: 110px;
+	width: 235px;
+	height: 80px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
     justify-content: center;
-	padding: 15px;
+	padding: 10px;
 	box-sizing: border-box;
-	border-radius: 50px;
+	border-radius: 40px;
     gap: 6px;
 	box-shadow: 1px 2px 5px 2px #6f6d6d2c;
     cursor: pointer;
@@ -25,8 +27,8 @@ $font-family_1: var(--font-ubuntu);
         
 		.img-doctor-content {
             border-radius: 100%;
-			width: 90px;
-			height: 90px;
+			width: 65px;
+			height: 65px;
 			object-fit: cover;
 		}
 
@@ -46,7 +48,7 @@ $font-family_1: var(--font-ubuntu);
                 text-align: center;
 				line-height: 30px;
 				font-weight: 450;
-                font-size: 26px;
+                font-size: 20px;
                 margin-bottom: 0;
 			}
 			
@@ -62,8 +64,8 @@ $font-family_1: var(--font-ubuntu);
         .masked-doctor-image{
             .img-doctor-content {
                 border-radius: 20px 0 0 20px;
-                width: 110px;
-                height: 110px;
+                width: 80px;
+                height: 80px;
                 // border-radius: 14px;
             }
         }
