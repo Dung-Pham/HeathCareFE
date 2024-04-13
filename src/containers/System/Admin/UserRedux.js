@@ -7,6 +7,7 @@ import "./UserRedux.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import TableManageUser from "./TableManageUser";
+import { toast } from 'react-toastify'
 
 class UserRedux extends Component {
 	constructor(props) {
@@ -89,13 +90,20 @@ class UserRedux extends Component {
 		let data = e.target.files;
 		let file = data[0];
 		if (file) {
-			let base64 = await CommonUtils.getBase64(file)
-			console.log('check base64: ', base64)
-			let objectUrl = URL.createObjectURL(file);
-			this.setState({
-				previewImgUrl: objectUrl,
-				avatar: base64
-			});
+			let fileName = file.name
+			let idxDot = fileName.lastIndexOf(".") + 1;
+			let extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+			// console.log('check ext: ', extFile)
+			if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
+				let base64 = await CommonUtils.getBase64(file)
+				let objectUrl = URL.createObjectURL(file);
+				this.setState({
+					previewImgUrl: objectUrl,
+					avatar: base64
+				});
+			} else {
+				toast.error("Only jpg/jpeg and png files are allowed!")
+			}
 		}
 	};
 
@@ -339,6 +347,7 @@ class UserRedux extends Component {
 									<input
 										id="previewImg"
 										type="file"
+										accept=".jpg,.jpeg,.png"
 										hidden
 										onChange={(e) => this.handleOnChangeImg(e)}
 									/>
