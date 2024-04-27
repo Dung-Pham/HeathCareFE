@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import {toast} from 'react-toastify'
 import HomeHeader from '../../HomePage/HomeHeader';
 import './DoctorSchedule.scss'
 import moment from 'moment';
