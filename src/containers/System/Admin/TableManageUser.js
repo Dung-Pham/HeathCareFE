@@ -41,6 +41,7 @@ class TableManageUser extends Component {
     }
 
     handleDeleteUser = (user) => {
+        if(window.confirm("Bạn có chắc muốn xóa tài khoản này không?") == true)
         this.props.fetchDeleteUserStart(user.id)
     }
 
