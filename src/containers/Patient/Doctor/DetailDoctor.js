@@ -7,6 +7,7 @@ import { LANGUAGES } from '../../../utils';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfo from './DoctorExtraInfo';
 import HomeFooter from '../../HomePage/HomeFooter'
+import ListPatient from '../../../components/list-patient/listPatient';
 
 class DetailDoctor extends Component {
 
@@ -19,6 +20,7 @@ class DetailDoctor extends Component {
     }
 
     async componentDidMount() {
+        
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id
             this.setState({
@@ -84,6 +86,10 @@ class DetailDoctor extends Component {
                             />
                         </div>
                     </div>
+                    <ListPatient
+                        doctorIdFromParent={this.state.currentDoctorId}
+                        // date = {CurrentDate}
+                    />
                     <div className='detail-info-doctor'>
                         {detailDoctor && detailDoctor.Markdown &&
                             detailDoctor.Markdown.contentHTML &&
