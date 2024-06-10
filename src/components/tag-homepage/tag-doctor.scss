@@ -51,7 +51,6 @@ $font-family_1: var(--font-ubuntu);
 			/* Đặt left ở giữa */
 			transform: translate(-50%, -50%);
 			/* Dịch chuyển nội dung điều chỉnh ở giữa */
-
 		}
 
 	}
@@ -93,9 +92,8 @@ $font-family_1: var(--font-ubuntu);
 			.position-content{
 				color: var(--color-steelblue);
 				font-size: var(--font-size-lg);
-				// line-height: 12px;
+				line-height: 32px;
 				font-weight: 500;
-				font-size: 13px;
 
 			}
 			.description-content{

@@ -61,10 +61,10 @@ export const doctorMenu = [
     { //Quản lý người dùng
         name: 'menu.admin.manage-user',
         menus: [
-            { //Quản lý lịch trình khám bệnh
-                name: 'menu.doctor.manage-schedule',
-                link: '/doctor/manage-schedule'
-            },
+            // { //Quản lý lịch trình khám bệnh
+            //     name: 'menu.doctor.manage-schedule',
+            //     link: '/doctor/manage-schedule'
+            // },
             { //Quản lý bệnh nhân khám bệnh
                 name: 'menu.doctor.manage-patient',
                 link: '/doctor/manage-patient'
