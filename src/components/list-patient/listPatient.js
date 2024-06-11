@@ -43,6 +43,10 @@ class ListPatient extends Component {
         });
 
         if (listPatient.length > 0) {
+            console.log('before:', listPatient)
+            listPatient.sort((a, b) => a.timeType.localeCompare(b.timeType));
+            console.log('after:', listPatient)
+
             this.setState({
                 dataPatient: listPatient
             });
@@ -67,7 +71,7 @@ class ListPatient extends Component {
                         dataPatient.map((item, index) => {
                             return (
                                 <li key={index} tabIndex="1">
-                                    {item.patientData.firstName}
+                                    {item.patientData.firstName}, {item.timeTypeDataPatient.valueVi}
                                 </li>
                             );
                         })
